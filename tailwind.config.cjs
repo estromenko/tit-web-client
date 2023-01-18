@@ -5,7 +5,11 @@ const config = {
   ],
 
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        '90v': '90vh',
+      },
+    },
   },
 
   plugins: [require('flowbite/plugin')],
