@@ -1,5 +1,7 @@
-<script>
+<script lang="ts">
   import {Navbar, NavBrand, NavHamburger, NavLi, NavUl} from 'flowbite-svelte'
+
+  export let isAuthenticated: boolean
 </script>
 
 <Navbar let:hidden let:toggle>
@@ -14,7 +16,11 @@
     <NavLi href="/">Home</NavLi>
     <NavLi href="/dashboard">Dashboard</NavLi>
     <NavLi href="/about-us">About us</NavLi>
-    <NavLi href="/sign-in ">Sign in</NavLi>
-    <NavLi href="/sign-up">Sign up</NavLi>
+    {#if isAuthenticated}
+      <NavLi href="/profile">Profile</NavLi>
+    {:else}
+      <NavLi href="/sign-in ">Sign in</NavLi>
+      <NavLi href="/sign-up">Sign up</NavLi>
+    {/if}
   </NavUl>
 </Navbar>
