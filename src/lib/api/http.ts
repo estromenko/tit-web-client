@@ -1,11 +1,9 @@
+import {env} from '$env/dynamic/public'
 import type {User} from '$lib/types'
 
-export const registrationUser = async (
-  url: string,
-  email: string,
-  password: string,
-): Promise<User> => {
+export const registrationUser = async (email: string, password: string): Promise<User> => {
   try {
+    const url = `${env.PUBLIC_TIT_BACKEND}/auth/registration`
     const user = {email, password}
     const res = await fetch(url, {
       method: 'POST',
@@ -23,7 +21,8 @@ export const registrationUser = async (
   }
 }
 
-export const loginUser = async (url: string, email: string, password: string): Promise<User> => {
+export const loginUser = async (email: string, password: string): Promise<User> => {
+  const url = `${env.PUBLIC_TIT_BACKEND}/auth/login`
   const user = {email, password}
   try {
     const res = await fetch(url, {
