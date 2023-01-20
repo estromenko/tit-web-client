@@ -16,11 +16,11 @@
     class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
   />
 
-  {#if actionData?.somethingWrong}<p
-      class="text-red-700 dark:text-red-500 text-sm font-medium block mb-2"
-    >
-      Something wrong,try later
-    </p>{/if}
+  {#if actionData?.error}
+    <p class="text-red-700 dark:text-red-500 text-sm font-medium block mb-2">
+      {actionData.error}
+    </p>
+  {/if}
   <div class="mb-6">
     {#if actionData?.missingEmail}<Label for="email" color="red" class="block mb-2"
         >Email cannot be empty</Label

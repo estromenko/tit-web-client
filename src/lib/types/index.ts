@@ -3,6 +3,8 @@ export interface User {
   isSuperUser: boolean
   isActive: boolean
   token: string
+
+  error?: string
 }
 
 export interface IAuthFormData {

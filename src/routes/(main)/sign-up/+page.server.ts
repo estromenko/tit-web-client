@@ -31,7 +31,13 @@ export const actions: Actions = {
       const user = await registrationUser(data.email as string, data.password as string)
       setToken(cookies, user.token)
     } catch (err) {
-      return fail(400, {somethingWrong: true})
+      let message = (err as Error).message
+
+      if (err instanceof TypeError) {
+        message = 'Internal Server Error'
+      }
+
+      return fail(400, {error: message})
     }
 
     throw redirect(303, '/')
