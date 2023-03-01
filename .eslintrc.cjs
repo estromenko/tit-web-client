@@ -1,10 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-  ],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -58,7 +54,7 @@ module.exports = {
     ],
     semi: ['error', 'never'],
     'semi-spacing': ['warn'],
-    'comma-dangle': [2, 'always-multiline'],
+    'comma-dangle': [2, 'only-multiline'],
     'comma-style': ['warn'],
     'no-unused-vars': 'off',
     'max-len': [

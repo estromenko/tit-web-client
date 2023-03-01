@@ -27,3 +27,8 @@ export interface ISignUpActionData extends IAuthActionData {
 export interface ISignInActionData extends IAuthActionData {
   invalidData?: boolean
 }
+
+export interface IDashboardData {
+  port: number
+  password: string
+}

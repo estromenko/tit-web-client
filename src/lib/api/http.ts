@@ -1,5 +1,5 @@
 import {env} from '$env/dynamic/public'
-import type {User} from '$lib/types'
+import type {IDashboardData, User} from '$lib/types'
 
 interface IErrorResponse {
   error: string
@@ -7,12 +7,18 @@ interface IErrorResponse {
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE'
 
-const sendRequest = async <T>(method: RequestMethod, url: string, data?: unknown) => {
+const sendRequest = async <T>(
+  method: RequestMethod,
+  url: string,
+  data?: unknown,
+  token?: string,
+) => {
   const res = await fetch(url, {
     method: method,
     body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${token || ''}`,
     },
   })
 
@@ -37,4 +43,9 @@ export const registrationUser = async (email: string, password: string): Promise
 export const loginUser = async (email: string, password: string): Promise<User> => {
   const url = `${env.PUBLIC_TIT_BACKEND}/auth/login`
   return sendRequest<User>('POST', url, {email, password})
+}
+
+export const getVncPort = async (token: string) => {
+  const url = `${env.PUBLIC_TIT_BACKEND}/api/dashboard`
+  return sendRequest<IDashboardData>('POST', url, undefined, token)
 }

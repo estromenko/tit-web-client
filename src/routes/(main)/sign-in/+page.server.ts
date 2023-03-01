@@ -18,7 +18,7 @@ export const actions: Actions = {
     }
 
     try {
-      const user = await loginUser(data.email as string, data.password as string)
+      const user = await loginUser(data.email, data.password)
       setToken(cookies, user.token)
     } catch (err) {
       let message = (err as Error).message
