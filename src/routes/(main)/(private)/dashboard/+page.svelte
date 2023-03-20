@@ -1,5 +1,6 @@
 <script>
   import RFB from '@novnc/novnc/core/rfb'
+  import {Spinner} from 'flowbite-svelte'
   import {onMount} from 'svelte'
 
   import {getVncPort} from '$lib/api/http'
@@ -56,7 +57,11 @@
 
 <div
   id="screen"
-  class="m-2 p-2 h-[80vh] rounded-md border-2 flex justify-center items-center transition-colors"
+  class="relative m-2 p-2 h-[80vh] rounded-md border-2 flex justify-center items-center transition-colors"
 >
-  <h2 class="font-bold text-3xl absolute">{status}</h2>
+  {#if status === 'Loading'}
+    <Spinner size={32} class="absolute place-self-center" />
+  {:else}
+    <h2 class="font-bold text-2xl absolute text-red-600">{status}</h2>
+  {/if}
 </div>
