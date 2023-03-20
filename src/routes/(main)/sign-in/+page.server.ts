@@ -30,6 +30,8 @@ export const actions: Actions = {
       return fail(400, {error: message})
     }
 
-    throw redirect(303, '/')
+    const redirectTo = data.nextPage || '/'
+
+    throw redirect(303, redirectTo)
   },
 }

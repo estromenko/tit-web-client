@@ -2,12 +2,16 @@
   import {A, Button, Input, Label} from 'flowbite-svelte'
 
   import {enhance} from '$app/forms'
+  import {page} from '$app/stores'
   import type {ISignInActionData} from '$lib/types'
 
   export let actionData: ISignInActionData
+
+  const nextPage = $page.url.searchParams.get('next') || '/'
 </script>
 
 <form method="POST" action="?/login" use:enhance>
+  <input type="hidden" name="nextPage" value={nextPage} />
   <div class="flex flex-row items-center justify-center">
     <p class="text-lg mb-0">Sign in</p>
   </div>

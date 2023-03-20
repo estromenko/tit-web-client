@@ -10,6 +10,7 @@ export interface User {
 export interface IAuthFormData {
   email?: string
   password?: string
+  nextPage?: string
 }
 
 export interface IAuthActionData {
