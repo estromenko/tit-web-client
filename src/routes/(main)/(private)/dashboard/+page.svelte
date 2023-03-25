@@ -2,6 +2,7 @@
   import RFB from '@novnc/novnc/core/rfb'
   import {Spinner} from 'flowbite-svelte'
   import {onMount} from 'svelte'
+  import {fade} from 'svelte/transition'
 
   import {getVncPort} from '$lib/api/http'
   import {sleep} from '$lib/utils/misc'
@@ -60,8 +61,10 @@
   class="relative m-2 p-2 h-[80vh] rounded-md border-2 flex justify-center items-center transition-colors"
 >
   {#if status === 'Loading'}
-    <Spinner size={32} class="absolute place-self-center" />
-  {:else}
-    <h2 class="font-bold text-2xl absolute text-red-600">{status}</h2>
+    <div transition:fade class="absolute place-self-center">
+      <Spinner size={32} />
+    </div>
+  {:else if status}
+    <h2 transition:fade class="font-bold text-2xl absolute text-red-600">{status}</h2>
   {/if}
 </div>
