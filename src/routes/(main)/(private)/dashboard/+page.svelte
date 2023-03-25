@@ -1,5 +1,4 @@
 <script>
-  import RFB from '@novnc/novnc/core/rfb'
   import {Spinner} from 'flowbite-svelte'
   import {onMount} from 'svelte'
   import {fade} from 'svelte/transition'
@@ -15,6 +14,7 @@
 
   const connect = async () => {
     try {
+      const {default: RFB} = await import('@novnc/novnc/core/rfb')
       const {port, password} = await getVncPort(data.accessToken)
 
       const url = `ws://localhost:${port}`
