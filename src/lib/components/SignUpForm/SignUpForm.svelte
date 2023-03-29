@@ -1,13 +1,26 @@
 <script lang="ts">
-  import {A, Button, Input, Label} from 'flowbite-svelte'
-
+  import {A, Button, Input, Label, Spinner} from 'flowbite-svelte'
+import {fade} from 'svelte/transition'
+  
   import {enhance} from '$app/forms'
   import type {ISignUpActionData} from '$lib/types'
 
-  export let actionData: ISignUpActionData
+  export let actionData: ISignUpActionData | undefined
+
+  let loading = false
+
+  const onSubmit = () => {
+    loading = true
+    actionData = undefined
+
+    return async ({update}) => {
+      await update()
+      loading = false
+    }
+  }
 </script>
 
-<form method="POST" action="?/registration" use:enhance>
+<form method="POST" action="?/registration" use:enhance={onSubmit}>
   <div class="flex flex-row items-center justify-center">
     <p class="text-lg mb-0">Sign up</p>
   </div>
@@ -31,15 +44,21 @@
 
   <div class="mb-6">
     <Label for="password" class="mb-2">Password</Label>
-    {#if actionData?.passwordTooShort}<Label for="password" color="red" class="block mb-2"
-        >Password too short</Label
-      >{/if}
-    {#if actionData?.passwordTooLong}<Label for="password" color="red" class="block mb-2"
-        >Password too long</Label
-      >{/if}
-    {#if actionData?.passwordMismatch}<Label for="password" color="red" class="block mb-2"
-        >Passwords don't match</Label
-      >{/if}
+    {#if actionData?.passwordTooShort}
+      <div transition:fade>
+        <Label for="password" color="red" class="block mb-2">Password too short</Label>
+      </div>
+    {/if}
+    {#if actionData?.passwordTooLong}
+      <div transition:fade>
+        <Label for="password" color="red" class="block mb-2">Password too long</Label>
+      </div>
+    {/if}
+    {#if actionData?.passwordMismatch}
+      <div transition:fade>
+        <Label for="password" color="red" class="block mb-2">Passwords don't match</Label>
+      </div>
+    {/if}
     <Input type="password" id="password" name="password" placeholder="•••••••••" required />
   </div>
 
@@ -54,22 +73,30 @@
     />
   </div>
 
-  <div class="text-center lg:text-left">
-    <Button
-      type="submit"
-      btnClass="px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-    >
-      Register
-    </Button>
-    <p class="text-sm font-semibold mt-2 pt-1 mb-0">
-      Already have an account?
-      <A
-        href="/sign-in"
-        color="text-red-600"
-        class="hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-      >
-        Login
-      </A>
-    </p>
+  <div class="relative h-10 text-center lg:text-left">
+    {#if loading}
+      <div transition:fade>
+        <Spinner size={8} class="absolute ml-10" />
+      </div>
+    {:else}
+      <div transition:fade>
+        <Button
+          type="submit"
+          btnClass="absolute px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+        >
+          Register
+        </Button>
+      </div>
+    {/if}
   </div>
+  <p class="text-sm font-semibold mt-2 pt-1 mb-0">
+    Already have an account?
+    <A
+      href="/sign-in"
+      color="text-red-600"
+      class="hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+    >
+      Login
+    </A>
+  </p>
 </form>
