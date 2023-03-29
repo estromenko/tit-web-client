@@ -28,7 +28,7 @@ export const actions: Actions = {
     }
 
     try {
-      const user = await registrationUser(data.email, data.password)
+      const user = await registrationUser(data.email!, data.password!)
       setToken(cookies, user.token)
     } catch (err) {
       let message = (err as Error).message
