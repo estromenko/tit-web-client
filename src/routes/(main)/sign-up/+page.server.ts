@@ -40,6 +40,6 @@ export const actions: Actions = {
       return fail(400, {error: message})
     }
 
-    throw redirect(303, '/')
+    throw redirect(303, '/dashboard')
   },
 }
