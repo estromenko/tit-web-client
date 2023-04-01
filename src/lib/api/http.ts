@@ -45,7 +45,7 @@ export const loginUser = async (email: string, password: string): Promise<User> 
   return sendRequest<User>('POST', url, {email, password})
 }
 
-export const getVncPort = async (token: string) => {
+export const getDashboardPassword = async (token: string) => {
   const url = `${env.PUBLIC_TIT_BACKEND}/api/dashboard`
   return sendRequest<IDashboardData>('POST', url, undefined, token)
 }

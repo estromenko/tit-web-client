@@ -3,7 +3,8 @@
   import {onMount} from 'svelte'
   import {fade} from 'svelte/transition'
 
-  import {getVncPort} from '$lib/api/http'
+  import {env} from '$env/dynamic/public'
+  import {getDashboardPassword} from '$lib/api/http'
   import {sleep} from '$lib/utils/misc'
 
   export let data
@@ -15,9 +16,9 @@
   const connect = async () => {
     try {
       const {default: RFB} = await import('@novnc/novnc/core/rfb')
-      const {port, password} = await getVncPort(data.accessToken)
+      const {id, password} = await getDashboardPassword(data.accessToken)
 
-      const url = `ws://localhost:${port}`
+      const url = `ws://${env.PUBLIC_DASHBOARDS_DOMAIN}/${id}`
       const rfb = new RFB(document.getElementById('screen'), url, {
         credentials: {
           password: password,
