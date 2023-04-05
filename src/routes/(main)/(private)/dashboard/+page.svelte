@@ -25,6 +25,8 @@
         },
       })
 
+      rfb.scaleViewport = 1
+
       rfb.addEventListener('connect', connectedToServer)
       rfb.addEventListener('disconnect', disconnectedFromServer)
     } catch (_error) {
