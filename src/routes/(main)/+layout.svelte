@@ -6,6 +6,6 @@
   export let data: LayoutData
 </script>
 
-<Header isAuthenticated={Boolean(data.accessToken)} />
+<Header user={data.user} />
 
 <slot />

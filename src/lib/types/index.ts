@@ -7,6 +7,12 @@ export interface User {
   error?: string
 }
 
+export interface Tutorial {
+  id: number
+  name: string
+  content: string
+}
+
 export interface IAuthFormData {
   email?: string
   password?: string

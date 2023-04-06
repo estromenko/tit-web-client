@@ -1,5 +1,5 @@
 import {env} from '$env/dynamic/public'
-import type {IDashboardData, User} from '$lib/types'
+import type {IDashboardData, Tutorial, User} from '$lib/types'
 
 interface IErrorResponse {
   error: string
@@ -28,7 +28,7 @@ const sendRequest = async <T>(
     throw new Error('Internal Server Error')
   }
 
-  if (res.status == 400) {
+  if (res.status >= 400) {
     throw new Error((responseData as IErrorResponse).error)
   }
 
@@ -48,4 +48,34 @@ export const loginUser = async (email: string, password: string): Promise<User> 
 export const getDashboardPassword = async (token: string) => {
   const url = `${env.PUBLIC_TIT_BACKEND}/api/dashboard`
   return sendRequest<IDashboardData>('POST', url, undefined, token)
+}
+
+export const getUser = async (token: string) => {
+  const url = `${env.PUBLIC_TIT_BACKEND}/api/whoami`
+  return sendRequest<User>('GET', url, undefined, token)
+}
+
+export const listTutorials = async (token: string) => {
+  const url = `${env.PUBLIC_TIT_BACKEND}/api/tutorials/`
+  return sendRequest<Tutorial[]>('GET', url, undefined, token)
+}
+
+export const createTutorial = async (tutorial: Tutorial, token: string) => {
+  const url = `${env.PUBLIC_TIT_BACKEND}/api/tutorials/`
+  return sendRequest<Tutorial>('POST', url, tutorial, token)
+}
+
+export const getTutorial = async (id: number, token: string) => {
+  const url = `${env.PUBLIC_TIT_BACKEND}/api/tutorials/${id}`
+  return sendRequest<Tutorial>('GET', url, undefined, token)
+}
+
+export const updateTutorial = async (tutorial: Tutorial, token: string) => {
+  const url = `${env.PUBLIC_TIT_BACKEND}/api/tutorials/${tutorial.id}`
+  return sendRequest<Tutorial>('PUT', url, tutorial, token)
+}
+
+export const deleteTutorial = async (id: number, token: string) => {
+  const url = `${env.PUBLIC_TIT_BACKEND}/api/tutorials/${id}`
+  return sendRequest('DELETE', url, undefined, token)
 }

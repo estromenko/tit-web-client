@@ -36,10 +36,13 @@
   },
   "type": "module",
   "dependencies": {
+    "@bytemd/plugin-highlight": "^1.21.0",
     "@novnc/novnc": "^1.4.0",
+    "bytemd": "^1.21.0",
     "classnames": "^2.3.2",
     "flowbite": "^1.6.1",
     "flowbite-svelte": "^0.29.9",
+    "github-markdown-css": "^5.2.0",
     "svelte": "^3.55.1",
     "tailwindcss": "^3.2.4"
   }
