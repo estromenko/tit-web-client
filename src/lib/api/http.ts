@@ -79,3 +79,8 @@ export const deleteTutorial = async (id: number, token: string) => {
   const url = `${env.PUBLIC_TIT_BACKEND}/api/tutorials/${id}`
   return sendRequest('DELETE', url, undefined, token)
 }
+
+export const resetPassword = async (password: string, newPassword: string, token: string) => {
+  const url = `${env.PUBLIC_TIT_BACKEND}/auth/reset-password`
+  return sendRequest('POST', url, {password, newPassword}, token)
+}

@@ -39,3 +39,12 @@ export interface IDashboardData {
   port: number
   password: string
 }
+
+export interface IResetPasswordForm {
+  password: string
+  newPassword: string
+}
+
+export interface IPasswordResetActionData {
+  error?: string
+}
