@@ -1,11 +1,12 @@
 <script lang="ts">
+  import {getContext} from 'svelte'
+
   import Header from '$lib/components/Header/Header.svelte'
+  import type {User} from '$lib/types'
 
-  import type {LayoutData} from './$types'
-
-  export let data: LayoutData
+  const user = getContext<User | undefined>('user')
 </script>
 
-<Header user={data.user} />
+<Header user={$user} />
 
 <slot />

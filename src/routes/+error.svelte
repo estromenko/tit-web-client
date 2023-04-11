@@ -1,13 +1,17 @@
-<script>
+<script lang="ts">
   import {A} from 'flowbite-svelte'
+  import {getContext} from 'svelte'
   import {fade} from 'svelte/transition'
 
   import {page} from '$app/stores'
   import Header from '$lib/components/Header/Header.svelte'
+  import type {User} from '$lib/types'
+
+  const user = getContext<User | undefined>('user')
 </script>
 
 <div transition:fade class="absolute w-full">
-  <Header />
+  <Header user={$user} />
   <div class="flex flex-col h-[calc(100vh-150px)] items-center justify-center">
     {#if $page.status !== 200}
       <h1
