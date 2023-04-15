@@ -8,7 +8,7 @@
 
   export let actionData: ISignInActionData | undefined
 
-  const nextPage = $page.url.searchParams.get('next') || '/'
+  const nextPage = $page.url.searchParams.get('next') || ''
   let loading = false
 
   const onSubmit = () => {
