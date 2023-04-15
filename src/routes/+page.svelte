@@ -6,7 +6,7 @@
 
 <section
   transition:fade
-  class="bg-center fixed h-screen w-screen bg-cover bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply"
+  class="bg-center fixed top-0 h-screen w-screen bg-cover bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply"
 >
   <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
     <h1

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import {fade} from 'svelte/transition'
+  
   import SignInForm from '$lib/components/SignInForm/SignInForm.svelte'
 
   import type {ActionData} from './$types'
@@ -10,7 +12,7 @@
   <title>TiT — Sign In</title>
 </svelte:head>
 
-<section class="h-[calc(100vh-100px)]">
+<section transition:fade class="absolute w-full h-[calc(100vh-100px)]">
   <div class="px-6 h-full text-gray-800">
     <div
       class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
