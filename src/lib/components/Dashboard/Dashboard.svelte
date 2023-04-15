@@ -1,6 +1,6 @@
 <script>
   import {Spinner} from 'flowbite-svelte'
-  import {onMount} from 'svelte'
+  import {onDestroy, onMount} from 'svelte'
   import {fade} from 'svelte/transition'
 
   import {env} from '$env/dynamic/public'
@@ -9,6 +9,7 @@
 
   export let accessToken
 
+  let rfb
   let status = 'Loading'
   let attempt = 0
   const maxAttempts = 3
@@ -19,7 +20,7 @@
       const {id, password} = await getDashboardPassword(accessToken)
 
       const url = `${env.PUBLIC_DASHBOARD_URL}/${id}`
-      const rfb = new RFB(document.getElementById('screen'), url, {
+      rfb = new RFB(document.getElementById('screen'), url, {
         credentials: {
           password: password,
         },
@@ -56,7 +57,14 @@
     }
   }
 
+  const manualDisconnect = () => {
+    if (rfb) {
+      rfb.disconnect()
+    }
+  }
+
   onMount(connect)
+  onDestroy(manualDisconnect)
 </script>
 
 <div
