@@ -18,7 +18,7 @@
       const {default: RFB} = await import('@novnc/novnc/core/rfb')
       const {id, password} = await getDashboardPassword(accessToken)
 
-      const url = `ws://${env.PUBLIC_DASHBOARDS_DOMAIN}/${id}`
+      const url = `${env.PUBLIC_DASHBOARD_URL}/${id}`
       const rfb = new RFB(document.getElementById('screen'), url, {
         credentials: {
           password: password,
