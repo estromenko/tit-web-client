@@ -2,4 +2,4 @@
 
 set -x
 
-yarn start
+node /var/www/tit-web-client
