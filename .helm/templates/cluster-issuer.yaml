@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: tit-frontend-letsencrypt
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: {{ .Values.issuerEmail }}
+    privateKeySecretRef:
+      name: tit-frontend-tls
+    solvers:
+    - http01:
+        ingress:
+          class: traefik

@@ -1,0 +1,8 @@
+image: registry.tutorin.tech/tit-frontend:latest
+replicas: 2
+domain: tutorin.tech
+issuerEmail: estromenko23@gmail.com
+env:
+  PUBLIC_TIT_BACKEND: https://api.tutorin.tech
+  PUBLIC_DASHBOARD_URL: wss://dashboard.tutorin.tech
+  ORIGIN: https://tutorin.tech

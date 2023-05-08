@@ -27,8 +27,19 @@ $ yarn dev
 
 ### Production
 
-To deploy the app in production environment you should use prepared `docker-compose.yml` file:
+To deploy the app in production environment you should use werf
+(Installation instruction [link](https://werf.io/documentation/v1.2/#installing-werf)).
+
+To build and deploy app use command below:
 ```bash
-$ cd docker
-$ docker-compose up -d --build
+$ werf converge --repo registry.tutorin.tech/tit-web-client --env prod
+```
+
+To override default configuration you can use `--set` flags or custom `values.yaml` file:
+```bash
+$ werf converge --repo registry.tutorin.tech/tit-web-client --env prod \
+    --set PUBLIC_TIT_BACKEND=https://api.tutorin.tech
+$ # Alternatively
+$ werf converge --repo registry.tutorin.tech/tit-web-client --env prod \
+    --values /path/to/custom/values.yaml
 ```

@@ -1,9 +1,0 @@
-services:
-  tit-backend:
-    image: tit-web-client:latest
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
-    network_mode: host
-    env_file:
-      - "../.env"
