@@ -1,7 +1,7 @@
 <script lang="ts">
-  import highlight from '@bytemd/plugin-highlight'
   import {Editor} from 'bytemd'
   import {Button, Input} from 'flowbite-svelte'
+  import {onMount} from 'svelte'
   import {fade} from 'svelte/transition'
 
   import {enhance} from '$app/forms'
@@ -11,6 +11,15 @@
   export let form: ActionData
 
   let content = '# Hello, world!'
+  let bytemdPlugins = []
+
+  const fetchBytemdPlugins = async () => {
+    const highlight = (await import('@bytemd/plugin-highlight')).default
+
+    bytemdPlugins = [highlight()]
+  }
+
+  onMount(fetchBytemdPlugins)
 </script>
 
 <div transition:fade class="absolute w-full p-4">
@@ -28,7 +37,7 @@
     <Editor
       value={content}
       on:change={(event) => (content = event.detail.value)}
-      plugins={[highlight()]}
+      plugins={bytemdPlugins}
     />
   </form>
 </div>

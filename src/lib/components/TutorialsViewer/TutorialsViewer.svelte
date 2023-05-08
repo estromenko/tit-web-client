@@ -1,5 +1,4 @@
 <script lang="ts">
-  import highlight from '@bytemd/plugin-highlight'
   import {Viewer} from 'bytemd'
   import {Listgroup, ListgroupItem, Spinner} from 'flowbite-svelte'
   import {onMount} from 'svelte'
@@ -14,6 +13,7 @@
   let error = false
   let openedTutorial = ''
   let tutorials = []
+  let bytemdPlugins = []
 
   const fetchTutorials = async () => {
     try {
@@ -26,11 +26,20 @@
     }
   }
 
+  const fetchPlugins = async () => {
+    const highlight = (await import('@bytemd/plugin-highlight')).default
+
+    bytemdPlugins = [highlight()]
+  }
+
   const returnToTutorialsList = () => {
     openedTutorial = ''
   }
 
-  onMount(fetchTutorials)
+  onMount(() => {
+    fetchTutorials()
+    fetchPlugins()
+  })
 </script>
 
 <div
@@ -48,7 +57,7 @@
         <img src={back} alt="Back" class="h-10" />
       </button>
       <div class="p-8">
-        <Viewer value={openedTutorial} plugins={[highlight()]} />
+        <Viewer value={openedTutorial} plugins={bytemdPlugins} />
       </div>
     </div>
   {:else}

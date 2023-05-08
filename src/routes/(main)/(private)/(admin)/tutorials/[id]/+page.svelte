@@ -1,7 +1,7 @@
 <script lang="ts">
-  import highlight from '@bytemd/plugin-highlight'
   import {Editor} from 'bytemd'
   import {Button, Modal} from 'flowbite-svelte'
+  import {onMount} from 'svelte'
   import {fade} from 'svelte/transition'
 
   import {deleteTutorial, updateTutorial} from '$lib/api/http'
@@ -12,6 +12,7 @@
   const tutorial = data?.tutorial
 
   let modalOpened = false
+  let bytemdPlugins = []
 
   const update = async () => {
     await updateTutorial(tutorial, data.accessToken!)
@@ -22,6 +23,14 @@
     await deleteTutorial(tutorial.id, data.accessToken!)
     window.location.href = '/tutorials'
   }
+
+  const fetchBytemdPlugins = async () => {
+    const highlight = (await import('@bytemd/plugin-highlight')).default
+
+    bytemdPlugins = [highlight()]
+  }
+
+  onMount(fetchBytemdPlugins)
 </script>
 
 <div transition:fade class="absolute w-full p-4">
@@ -47,7 +56,7 @@
   <Editor
     value={tutorial.content}
     on:change={(event) => (tutorial.content = event.detail.value)}
-    plugins={[highlight()]}
+    plugins={bytemdPlugins}
   />
 </div>
 {#if modalOpened}
