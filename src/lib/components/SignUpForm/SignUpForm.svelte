@@ -1,7 +1,7 @@
 <script lang="ts">
   import {A, Button, Input, Label, Spinner} from 'flowbite-svelte'
-import {fade} from 'svelte/transition'
-  
+  import {fade} from 'svelte/transition'
+
   import {enhance} from '$app/forms'
   import type {ISignUpActionData} from '$lib/types'
 
@@ -82,7 +82,7 @@ import {fade} from 'svelte/transition'
       <div transition:fade>
         <Button
           type="submit"
-          btnClass="absolute px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+          btnClass="right-0 left-0 xl:right-auto xl:left-0 absolute px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
         >
           Register
         </Button>
