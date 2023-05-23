@@ -7,13 +7,13 @@
   export let data: PageServerLoad
 </script>
 
-<div transition:fade class="absolute w-full p-4">
+<div class="absolute w-full p-4" transition:fade>
   <h1 class="font-bold text-5xl m-5">Tutorials</h1>
   <Button class="ml-5" href="/tutorials/create">Create</Button>
   {#if data.tutorials.length > 0}
     <div class="p-5">
       <Listgroup active>
-        {#each data.tutorials as tutorial}
+        {#each data.tutorials as tutorial (tutorial.id)}
           <ListgroupItem href={`/tutorials/${tutorial.id}`}>
             {tutorial.name}
           </ListgroupItem>

@@ -20,7 +20,7 @@
   }
 </script>
 
-<form method="POST" action="?/registration" use:enhance={onSubmit}>
+<form action="?/registration" method="POST" use:enhance={onSubmit}>
   <div class="flex flex-row items-center justify-center">
     <p class="text-lg mb-0">Sign up</p>
   </div>
@@ -35,54 +35,54 @@
     </p>
   {/if}
   <div class="mb-6">
-    {#if actionData?.missingEmail}<Label for="email" color="red" class="block mb-2"
+    {#if actionData?.missingEmail}<Label class="block mb-2" color="red" for="email"
         >Email cannot be empty</Label
       >{/if}
-    <Label for="email" class="mb-2">Email address</Label>
-    <Input type="email" name="email" placeholder="john.doe@company.com" required />
+    <Label class="mb-2" for="email">Email address</Label>
+    <Input name="email" placeholder="john.doe@company.com" required type="email" />
   </div>
 
   <div class="mb-6">
-    <Label for="password" class="mb-2">Password</Label>
+    <Label class="mb-2" for="password">Password</Label>
     {#if actionData?.passwordTooShort}
       <div transition:fade>
-        <Label for="password" color="red" class="block mb-2">Password too short</Label>
+        <Label class="block mb-2" color="red" for="password">Password too short</Label>
       </div>
     {/if}
     {#if actionData?.passwordTooLong}
       <div transition:fade>
-        <Label for="password" color="red" class="block mb-2">Password too long</Label>
+        <Label class="block mb-2" color="red" for="password">Password too long</Label>
       </div>
     {/if}
     {#if actionData?.passwordMismatch}
       <div transition:fade>
-        <Label for="password" color="red" class="block mb-2">Passwords don't match</Label>
+        <Label class="block mb-2" color="red" for="password">Passwords don't match</Label>
       </div>
     {/if}
-    <Input type="password" id="password" name="password" placeholder="•••••••••" required />
+    <Input id="password" name="password" placeholder="•••••••••" required type="password" />
   </div>
 
   <div class="mb-6">
-    <Label for="repeatPassword" class="mb-2">Repeat password</Label>
+    <Label class="mb-2" for="repeatPassword">Repeat password</Label>
     <Input
-      type="password"
       id="repeatPassword"
       name="repeatPassword"
       placeholder="•••••••••"
       required
+      type="password"
     />
   </div>
 
   <div class="relative h-10 text-center lg:text-left">
     {#if loading}
       <div transition:fade>
-        <Spinner size={8} class="absolute ml-10" />
+        <Spinner class="absolute ml-10" size={8} />
       </div>
     {:else}
       <div transition:fade>
         <Button
-          type="submit"
           btnClass="right-0 left-0 xl:right-auto xl:left-0 absolute px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+          type="submit"
         >
           Register
         </Button>
@@ -92,9 +92,9 @@
   <p class="text-sm font-semibold mt-2 pt-1 mb-0">
     Already have an account?
     <A
-      href="/sign-in"
-      color="text-red-600"
       class="hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+      color="text-red-600"
+      href="/sign-in"
     >
       Login
     </A>

@@ -8,7 +8,7 @@
 
 <Navbar let:hidden let:toggle>
   <NavBrand href="/">
-    <img src="/logo.png" class="mr-3 h-6 sm:h-9" alt="Tutor In Tech logo" />
+    <img class="mr-3 h-6 sm:h-9" alt="Tutor In Tech logo" src="/logo.png" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
       Tutor In Tech
     </span>

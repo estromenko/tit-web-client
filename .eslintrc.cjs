@@ -1,6 +1,11 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:svelte/all'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:svelte/prettier',
+    'plugin:svelte/recommended',
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -68,7 +73,7 @@ module.exports = {
       'error',
       {
         code: 100,
-        ignorePattern: "className='.*'",
+        ignorePattern: '(class|btnClass|d)=".*"',
       },
     ],
     '@typescript-eslint/no-non-null-assertion': ['off'],
@@ -80,6 +85,9 @@ module.exports = {
     ],
     'no-multi-spaces': 'warn',
     'simple-import-sort/imports': 'warn',
+    'svelte/experimental-require-slot-types': ['off'],
+    'svelte/experimental-require-strict-events': ['off'],
+    'svelte/block-lang': ['off'],
   },
   settings: {
     'svelte3/typescript': require('typescript'),
@@ -88,5 +96,5 @@ module.exports = {
     'svelte3/ignore-styles': () => true,
   },
   plugins: ['@typescript-eslint', 'simple-import-sort'],
-  ignorePatterns: ['node_modules', 'svelte.config.js'],
+  ignorePatterns: ['node_modules', 'svelte.config.js', '.eslintrc.cjs'],
 }

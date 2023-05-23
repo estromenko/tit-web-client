@@ -5,8 +5,8 @@
 </script>
 
 <section
-  transition:fade
   class="bg-center fixed top-0 h-screen w-screen bg-cover bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply"
+  transition:fade
 >
   <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
     <h1
@@ -19,8 +19,8 @@
     </p>
     <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
       <a
-        href="/dashboard"
         class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+        href="/dashboard"
       >
         Get started
         <ArrowIcon />

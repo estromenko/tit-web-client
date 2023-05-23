@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Editor} from 'bytemd'
+  import type {BytemdPlugin} from 'bytemd'
   import {Button, Input} from 'flowbite-svelte'
   import {onMount} from 'svelte'
   import {fade} from 'svelte/transition'
@@ -11,7 +12,7 @@
   export let form: ActionData
 
   let content = '# Hello, world!'
-  let bytemdPlugins = []
+  let bytemdPlugins: BytemdPlugin[] = []
 
   const fetchBytemdPlugins = async () => {
     const highlight = (await import('@bytemd/plugin-highlight')).default
@@ -22,22 +23,22 @@
   onMount(fetchBytemdPlugins)
 </script>
 
-<div transition:fade class="absolute w-full p-4">
-  <form use:enhance method="POST" action="?/create">
+<div class="absolute w-full p-4" transition:fade>
+  <form action="?/create" method="POST" use:enhance>
     {#if form?.error}
-      <div transition:fade class="text-red-600 font-bold">
+      <div class="text-red-600 font-bold" transition:fade>
         {form.error}
       </div>
     {/if}
     <div class="flex gap-4 pb-4">
-      <Input placeholder="Name" name="name" required />
+      <Input name="name" placeholder="Name" required />
       <Button type="submit">Save</Button>
     </div>
-    <input type="hidden" name="content" value={content} />
+    <input name="content" type="hidden" value={content} />
     <Editor
+      plugins={bytemdPlugins}
       value={content}
       on:change={(event) => (content = event.detail.value)}
-      plugins={bytemdPlugins}
     />
   </form>
 </div>

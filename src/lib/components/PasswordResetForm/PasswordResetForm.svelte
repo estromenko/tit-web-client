@@ -38,9 +38,9 @@
 </script>
 
 <Form title="Password Reset">
-  <form use:enhance={onSubmit} action="?/resetPassword" method="POST">
+  <form action="?/resetPassword" method="POST" use:enhance={onSubmit}>
     {#if actionData?.error}
-      <p transition:fade class="text-red-700 dark:text-red-500 text-sm font-medium block mb-2">
+      <p class="text-red-700 dark:text-red-500 text-sm font-medium block mb-2" transition:fade>
         {actionData?.error}
       </p>
     {/if}
@@ -49,30 +49,30 @@
       <div class="w-2/4">
         <FloatingLabelInput
           name="password"
-          type="password"
           style="outlined"
           class="w-full shadow"
           label="Old Password"
           required
+          type="password"
           bind:value={oldPassword}
           on:focus={() => (newPasswordVisible = true)}
         />
       </div>
     </div>
     {#if newPasswordVisible}
-      <div in:fly={{y: -50, duration: 1000}} class="pt-4 flex justify-between items-center">
+      <div class="pt-4 flex justify-between items-center" in:fly={{y: -50, duration: 1000}}>
         <div class="w-full">
           <span class="font-bold"> New Password </span>
         </div>
         <div class="w-2/4">
           <FloatingLabelInput
-            style="outlined"
-            color={newPasswordInvalidMessage ? 'red' : undefined}
-            type="password"
-            class="w-full shadow"
             name="newPassword"
+            style="outlined"
+            class="w-full shadow"
+            color={newPasswordInvalidMessage ? 'red' : undefined}
             label="New Password"
             required
+            type="password"
             bind:value={newPassword}
           />
           {#if newPasswordInvalidMessage}
@@ -84,18 +84,18 @@
           {/if}
         </div>
       </div>
-      <div in:fly={{y: -50, duration: 1000}} class="pt-4 flex justify-between items-center">
+      <div class="pt-4 flex justify-between items-center" in:fly={{y: -50, duration: 1000}}>
         <div class="w-full">
           <span class="font-bold"> Repeat New Password </span>
         </div>
         <div class="w-2/4">
           <FloatingLabelInput
             style="outlined"
-            color={repeatedNewPasswordInvalidMessage ? 'red' : undefined}
-            type="password"
             class="w-full shadow"
+            color={repeatedNewPasswordInvalidMessage ? 'red' : undefined}
             label="Repeat New Password"
             required
+            type="password"
             bind:value={repeatedNewPassword}
           />
           {#if repeatedNewPasswordInvalidMessage}
@@ -110,11 +110,11 @@
       <div class="w-full flex gap-5 mt-4" in:fly={{y: 50, duration: 1000}}>
         <div class="relative w-full">
           {#if loading}
-            <div transition:fade class="w-full flex justify-center">
+            <div class="w-full flex justify-center" transition:fade>
               <Spinner class="absolute" />
             </div>
           {:else}
-            <div transition:fade class="relative w-full">
+            <div class="relative w-full" transition:fade>
               <Button class="absolute w-full" type="submit">Save</Button>
             </div>
           {/if}

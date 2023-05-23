@@ -13,7 +13,7 @@
   export let form: FormData
 </script>
 
-<div transition:fade class="absolute w-full p-4">
+<div class="absolute w-full p-4" transition:fade>
   <div class="flex justify-between align-center p-4">
     <h2 class="text-3xl font-bold">Account Details</h2>
     <div>
@@ -32,7 +32,7 @@
             <span class="text-gray-400 italic">(cannot be edited)</span>
           </div>
           <div class="w-2/4">
-            <Input placeholder={$user.email} class="w-full p-3 shadow" disabled />
+            <Input class="w-full p-3 shadow" disabled placeholder={user.email} />
           </div>
         </div>
       </Form>

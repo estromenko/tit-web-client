@@ -13,7 +13,7 @@
 
   export let data: LayoutData
 
-  const user = writable<User | undefined>()
+  const user = writable<User | undefined>(undefined)
   $: user.set(data.user)
 
   setContext('user', user)

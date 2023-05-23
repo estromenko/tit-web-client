@@ -14,8 +14,6 @@ export const actions: Actions = {
       return fail(400, {error: (err as Error).message})
     }
 
-    if (tutorial) {
-      throw redirect(303, `/tutorials/${tutorial.id}`)
-    }
+    throw redirect(303, `/tutorials/${tutorial.id}`)
   },
 }
