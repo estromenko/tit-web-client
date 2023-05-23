@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:svelte/all'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -15,7 +15,14 @@ module.exports = {
   overrides: [
     {
       files: ['*.svelte'],
-      processor: 'svelte3/svelte3',
+      parser: 'svelte-eslint-parser',
+      parserOptions: {
+        parser: {
+          ts: '@typescript-eslint/parser',
+          js: 'espree',
+          typescript: '@typescript-eslint/parser',
+        },
+      },
     },
   ],
   rules: {
@@ -80,6 +87,6 @@ module.exports = {
     // See https://github.com/sveltejs/eslint-plugin-svelte3/issues/70
     'svelte3/ignore-styles': () => true,
   },
-  plugins: ['svelte3', '@typescript-eslint', 'simple-import-sort'],
+  plugins: ['@typescript-eslint', 'simple-import-sort'],
   ignorePatterns: ['node_modules', 'svelte.config.js'],
 }
