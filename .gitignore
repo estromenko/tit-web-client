@@ -19,6 +19,7 @@ vite.config.js.timestamp-*
 .netlify
 .turbo
 .vercel
+.vscode
 .test-tmp
 symlink-from
 
