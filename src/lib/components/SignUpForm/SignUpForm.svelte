@@ -75,7 +75,7 @@
   <div class="mb-3">
     <Label>
       <Checkbox required />
-      Agree with terms of service
+      Agree with <A href="/policy">terms of service</A>
     </Label>
   </div>
 
