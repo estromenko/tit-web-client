@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {A, Button, Input, Label, Spinner} from 'flowbite-svelte'
+  import {A, Button, Checkbox, Input, Label, Spinner} from 'flowbite-svelte'
   import {fade} from 'svelte/transition'
 
   import {enhance} from '$app/forms'
@@ -62,7 +62,7 @@
     <Input id="password" name="password" placeholder="•••••••••" required type="password" />
   </div>
 
-  <div class="mb-6">
+  <div class="mb-3">
     <Label class="mb-2" for="repeatPassword">Repeat password</Label>
     <Input
       id="repeatPassword"
@@ -71,6 +71,12 @@
       required
       type="password"
     />
+  </div>
+  <div class="mb-3">
+    <Label>
+      <Checkbox required />
+      Agree with terms of service
+    </Label>
   </div>
 
   <div class="relative h-10 text-center lg:text-left">
