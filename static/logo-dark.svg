@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="105" height="60" fill-rule="evenodd" clip-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 687.75324 402.5696">
+  <g transform="translate(-244.07,-232.27824)">
+    <g>
+      <g>
+        <path d="m 504.99,222.57 h 73.09 v 73.09 h -73.09 z" fill="#7396c5"></path>
+        <path d="m 504.96,309.57 h 73.09 v 73.09 h -73.09 z" fill="#324475"></path>
+        <path d="m 504.94,396.6 h 73.09 v 73.09 h -73.09 z" fill="#7396c5"></path>
+        <path d="m 504.95,483.59 h 73.09 v 73.09 h -73.09 z" fill="#7396c5"></path>
+        <path d="m 504.95,570.62 h 73.09 v 73.09 h -73.09 z" fill="#324475"></path>
+        <path d="m 418.02,309.62 h 73.09 v 73.09 h -73.09 z" fill="#324475"></path>
+        <path d="m 418,396.65 h 73.09 v 73.09 H 418 Z" fill="#7396c5"></path>
+        <path d="m 418,483.65 h 73.09 v 73.09 H 418 Z" fill="#7396c5"></path>
+        <path d="m 418,570.67 h 73.09 v 73.09 H 418 Z" fill="#324475"></path>
+        <path d="m 331.05,309.55 h 73.09 v 73.09 h -73.09 z" fill="#7396c5"></path>
+        <path d="m 331.03,396.58 h 73.09 v 73.09 h -73.09 z" fill="#324475"></path>
+        <path d="m 331.03,483.58 h 73.09 v 73.09 h -73.09 z" fill="#324475"></path>
+        <path d="m 331.03,570.6 h 73.09 v 73.09 h -73.09 z" fill="#7396c5"></path>
+        <path d="m 244.07,396.68 h 73.09 v 73.09 h -73.09 z" fill="#7396c5"></path>
+        <path d="m 244.07,483.68 h 73.09 v 73.09 h -73.09 z" fill="#7396c5"></path>
+        <path d="m 419.51,223.38 h 73.09 v 73.09 h -73.09 z" fill="#7396c5"></path>
+        <g>
+          <path d="m 591.75,222.81 c 84.38,-5.2 229.58,54.49 235.22,191.1 125.73,-4.76 162.74,229.24 -26.83,229.34 l -208.39,-0.01 z" fill="#7396c5"></path>
+          <path d="m 591.75,310.58 c 212.89,-1.04 221.72,331.2 0,332.67 z" fill="#324475" fill-rule="nonzero"></path>
+          <path d="m 591.75,382.99 c 119.7,-0.59 124.66,186.22 0,187.04 z" fill="#7396c5" fill-rule="nonzero"></path>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

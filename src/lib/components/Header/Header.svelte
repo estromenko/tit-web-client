@@ -3,20 +3,24 @@
 
   import type {User} from '$lib/types'
 
+  import {page} from '$app/stores'
+
   export let user: User | undefined
 </script>
 
 <Navbar let:hidden let:toggle>
   <NavBrand href="/">
-    <img class="mr-3 h-6 sm:h-9" alt="Tutor In Tech logo" src="/logo.svg" />
+    <img class="mr-3 h-6 sm:h-9" alt="Tutor In Tech logo" src="/logo-dark.svg" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
       Tutor In Tech
     </span>
   </NavBrand>
   <NavHamburger on:click={toggle} />
   <NavUl {hidden}>
-    <NavLi href="/">Home</NavLi>
-    <NavLi href="/dashboard">Dashboard</NavLi>
+    {#if $page.url.pathname !== '/'}
+      <NavLi href="/">Home</NavLi>
+      <NavLi href="/dashboard">Dashboard</NavLi>
+    {/if}
     <NavLi href="/about-us">About us</NavLi>
     {#if user}
       <NavLi href="/profile">Profile</NavLi>
