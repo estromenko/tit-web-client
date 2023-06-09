@@ -44,7 +44,7 @@
 </script>
 
 <div
-  class="relative flex flex-center justify-center items-center rounded-md border-2 w-1/3 m-2 overflow-y-scroll"
+  class="relative flex flex-center w-full h-full justify-center items-center rounded-md border-2 md:w-1/3 m-2 overflow-y-scroll"
 >
   {#if loading}
     <div class="absolute place-self-center" transition:fade>

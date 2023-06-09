@@ -13,6 +13,7 @@
   let status = 'Loading'
   let attempt = 0
   const maxAttempts = 3
+  let isMobileDevice = false
 
   const connect = async () => {
     try {
@@ -63,13 +64,19 @@
     }
   }
 
-  onMount(connect)
+  onMount(() => {
+    isMobileDevice = /Mobi/i.test(window.navigator.userAgent) || screen.width < 1000
+
+    if (!isMobileDevice) {
+      connect()
+    }
+  })
   onDestroy(manualDisconnect)
 </script>
 
 <div
   id="screen"
-  class="relative m-2 p-2 w-2/3 h-[80vh] rounded-md border-2 flex justify-center items-center transition-colors"
+  class="overflow-hidden relative m-2 p-2 md:w-2/3 h-full w-full hidden md:flex rounded-md border-2 justify-center items-center transition-colors"
 >
   {#if status === 'Loading'}
     <div class="absolute place-self-center" transition:fade>

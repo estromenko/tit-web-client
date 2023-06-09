@@ -7,7 +7,10 @@
   export let data
 </script>
 
-<div class="absolute w-full flex justify-between" transition:fade>
+<div
+  class="absolute w-full h-[calc(100vh-100px)] flex justify-between flex-col md:flex-row"
+  transition:fade
+>
   <Dashboard accessToken={data.accessToken} />
   <TutorialsViewer accessToken={data.accessToken} />
 </div>
