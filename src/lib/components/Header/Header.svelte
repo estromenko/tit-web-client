@@ -11,7 +11,7 @@
 
 <Navbar let:hidden let:toggle>
   <NavBrand href="/">
-    <img class="mr-3 h-6 sm:h-9" alt="Tutor In Tech logo" src={logoDark} />
+    <img class="mr-3 w-16 h-6 sm:h-9" alt="Tutor In Tech logo" src={logoDark} />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
       TutorInTech
     </span>
