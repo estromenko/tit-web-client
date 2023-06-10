@@ -4,13 +4,14 @@
   import type {User} from '$lib/types'
 
   import {page} from '$app/stores'
+  import logoDark from '$lib/assets/images/logo-dark.svg'
 
   export let user: User | undefined
 </script>
 
 <Navbar let:hidden let:toggle>
   <NavBrand href="/">
-    <img class="mr-3 h-6 sm:h-9" alt="Tutor In Tech logo" src="/logo-dark.svg" />
+    <img class="mr-3 h-6 sm:h-9" alt="Tutor In Tech logo" src={logoDark} />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
       Tutor In Tech
     </span>

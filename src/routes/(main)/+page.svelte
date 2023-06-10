@@ -3,13 +3,14 @@
 
   import ArrowIcon from '$lib/components/icons/ArrowIcon/ArrowIcon.svelte'
   import Footer from '$lib/components/Footer/Footer.svelte'
+  import logoLight from '$lib/assets/images/logo-light.svg'
 </script>
 
 <div class="absolute w-full" transition:fade>
   <section class="bg-center bg-gray-800" transition:fade>
     <div class="flex-col flex sm:flex-row items-center px-4 mx-auto max-w-screen-xl py-24">
       <div class="hidden sm:block w-1/2">
-        <img src="/logo.svg" alt="CusDeb" />
+        <img src={logoLight} class="w-full" alt="CusDeb" />
       </div>
       <div class="text-center">
         <h1

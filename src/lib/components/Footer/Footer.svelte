@@ -10,12 +10,14 @@
   import Github from '$lib/components/icons/Github/Github.svelte'
   import Twitter from '$lib/components/icons/Twitter/Twitter.svelte'
   import YouTube from '$lib/components/icons/YouTube/YouTube.svelte'
+
+  import logoDark from '$lib/assets/images/logo-dark.svg'
 </script>
 
 <Footer footerType="socialmedia">
   <div class="md:flex md:justify-between">
     <div class="mb-6 md:mb-0">
-      <FooterBrand href="/" src="/logo-dark.svg" alt="Logo" name="TutorInTech" />
+      <FooterBrand href="/" src={logoDark} alt="Logo" name="TutorInTech" />
     </div>
     <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
       <div>
