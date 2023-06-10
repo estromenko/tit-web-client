@@ -7,6 +7,6 @@
   const user = getContext<User | undefined>('user')
 </script>
 
-<Header {user} />
+<Header user={$user} />
 
 <slot />

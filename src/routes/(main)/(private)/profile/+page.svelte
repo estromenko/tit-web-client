@@ -32,7 +32,7 @@
             <span class="text-gray-400 italic">(cannot be edited)</span>
           </div>
           <div class="w-2/4">
-            <Input class="w-full p-3 shadow" disabled placeholder={user.email} />
+            <Input class="w-full p-3 shadow" disabled placeholder={$user.email} />
           </div>
         </div>
       </Form>
