@@ -7,8 +7,13 @@ export const load = (async ({cookies}) => {
   const accessToken = cookies.get('accessToken')
 
   let user: User | undefined
-  if (accessToken) {
-    user = await getUser(accessToken)
+
+  try {
+    if (accessToken) {
+      user = await getUser(accessToken)
+    }
+  } catch {
+    // Token is not valid
   }
 
   return {
